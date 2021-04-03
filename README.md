@@ -70,7 +70,7 @@
 	* High request throughput.
 	* Multiple concurrent clients.
 	
-	  To address the above requirements WebClient is used for HTTP calls and Java Streams. WebClient is the reactive HTTP client that is part of Spring WebFlux. It provides a reactive, non-blocking interface for sending HTTP requests.
+	  To address the above requirements WebClient is used for HTTP calls. WebClient is the reactive HTTP client that is part of Spring WebFlux. It provides a reactive, non-blocking interface for sending HTTP requests.
 	         
 	  
    ### The application project should be runnable through Docker
@@ -128,5 +128,8 @@
   2. Navigate to ```/university-api-consumer```
   3. mvn clean install
   4. mvn spring-boot:run
-  5. To run external api ```cd ../university-domains-list-api``` and: ```python app.py```
-  
+  5. To run external api  	
+    * Clone Project git clone https://github.com/hipo/university-domains-list.git 
+	* Setup and activate virtual environment
+	* Install requirements ```pip install -r requirements.txt```
+	* Run server ```python app.py```
