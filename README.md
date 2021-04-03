@@ -87,7 +87,7 @@
             </plugin>
    ```
    
-      where ${image.path} should declare the repo/registry that the image should be pushed to and the image name.
+      where ${image.path} represents the repo/registry that the image should be pushed to and the image name.
    2. Provide repo credentials to .m2/settings.xml:
 		```
 		<servers>
@@ -126,10 +126,14 @@
 # Run application
   1. Clone project git clone: https://github.com/soumkon/projects
   2. Navigate to ```/university-api-consumer```
-  3. mvn clean install
-  4. mvn spring-boot:run
+  3. ```mvn clean install```
+  4. ```mvn spring-boot:run```
   5. To run external api  	
     * Clone Project git clone https://github.com/hipo/university-domains-list.git 
 	* Setup and activate virtual environment
 	* Install requirements ```pip install -r requirements.txt```
 	* Run server ```python app.py```
+	
+# Run tests
+  1. Navigate to ```/university-api-consumer```
+  2. ```mvn clean install``` . It is required that there is no configuration to skip tests in.m2/settings.xml

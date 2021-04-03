@@ -10,6 +10,11 @@ public class CountryReport {
     @JsonProperty("number_of_universities")
     String numOfUniversities;
 
+    public CountryReport(String country, String numOfUniversities) {
+        super();
+        this.country = country;
+        this.numOfUniversities = numOfUniversities;
+    }
     public String getCountry() {
         return country;
     }

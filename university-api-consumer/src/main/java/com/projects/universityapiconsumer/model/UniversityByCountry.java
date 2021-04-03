@@ -12,6 +12,11 @@ public class UniversityByCountry {
     private List<String> url;
     private String name;
 
+    public UniversityByCountry(List<String> url, String name) {
+        super();
+        this.url = url;
+        this.name = name;
+    }
     public List<String> getUrl() {
         return url;
     }
