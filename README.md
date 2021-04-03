@@ -28,6 +28,18 @@
 		{"url": ["http://www.example2.com/"], "name": "Example University 2", "country": "Exaple Country 2"}
 		]
 		``` 
+		Default page number and size from pageable are:	
+		```
+		page=0&size=20
+		```
+		
+		#### Examples
+		```
+		http://localhost:8080/universities
+		http://localhost:8080/universities?page=5
+		http://localhost:8080/universities?page=10&size=40
+		```
+		
    * ```/universities/{country}```: Supports searching available universities by country returning. Returns a list of all universities by country JSON response in the form:
         ```
 		[
@@ -35,13 +47,24 @@
 		{"url": ["http://www.example2.com/"], "name": "Example University 2"}
 		]
 		```
+		
+		#### Examples
+		```
+		http://localhost:8080/universities/Canada
+		```
+		
    * ```/universities/statistics```: Supports a statictics report where the total number of universities for each country is provided in the following JSON response:   
-   ```
-    [
-	{"country": "Example Country Name", "number_of_universities": "100"},
-	{"country": "Example Country Name 2", "number_of_universities": "0"}
-	]
-   ```
+	   ```
+		[
+		{"country": "Example Country Name", "number_of_universities": "100"},
+		{"country": "Example Country Name 2", "number_of_universities": "0"}
+		]
+	```
+   
+		#### Examples
+		```
+		http://localhost:8080/universities/statistics
+		```
    
    ### The application design should address (assuming one docker instance):
 	* High request throughput.
@@ -99,3 +122,11 @@
   . . .
   ```
   It is used to retry if the mono completed with an exception a maximum of 11 times with 5 seconds between each attempt. By doing this, the action will be performed every 5 seconds for the next minute. When external API is available again, the action is performed. If external API is not available after the retries, data will be updated next night. Cron and retries should change upon business requirements(e.g. if we know that data update is at 15.00.00 , cron job could be scheduled at 15.05.00 and retries could be schediled for the rest of the day in case external API is unavailable).
+
+# Run application
+  1. Clone project git clone: https://github.com/soumkon/projects
+  2. Navigate to ```/university-api-consumer```
+  3. mvn clean install
+  4. mvn spring-boot:run
+  5. To run external api ```cd ../university-domains-list-api``` and: ```python app.py```S
+  
